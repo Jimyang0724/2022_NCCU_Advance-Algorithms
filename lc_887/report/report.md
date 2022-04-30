@@ -231,3 +231,43 @@ $$\begin{gather*}
 ---
 
 # Solution 4 (Mathematical Thought)
+- If we have K eggs on hand, and we can move n times. 
+- Then set the maximum number of floors we can test to fun(k,n), and we can calculate the fun(k,n) from the following formula:
+
+$fun(k,n)=n + n(n-1)/2! + n(n-1)(n-2)/3! + …… + n(n-1)(n-2)……（n-k)/k!$
+
+We can slowly increase n, or we can do a binary search between n and N to find The smallest n, so that fun(k,n) is greater than or equal to N.
+
+[reference](https://leetcode.com/problems/super-egg-drop/discuss/181702/Clear-C%2B%2B-codeRuntime-0-msO(1)-spacewith-explation.No-DPWhat-we-need-is-mathematical-thought)
+
+---
+
+# Code
+```c++
+class Solution {
+public:
+    int superEggDrop(int k, int N) {
+        if (k == 1 || N<3) return N;
+        //n is the number of eggs we need when we do binary search
+        double n = log(N) / log(2);
+        // If the number of eggs is not enough to support our binary search, 
+        // slowly increase the number of moves n until the return value of the fun function is 
+        // greater than or equal to the target floor N
+        if (k < n++) 
+            while (fun(k, n) < N) ++n;
+        return n;
+    }
+private: 
+    //In the worst case,
+    // the maximum number of floors that can be tested if 
+    // the number of moves is n and the number of eggs is k
+    int fun(int k, int n) {
+        int i=1,temp = 1, maxNumOfF = 0;
+        while (i <= k) {
+            temp = temp*(n--) / (i++);
+            maxNumOfF += temp;
+        }
+        return maxNumOfF;
+    }
+};
+```
