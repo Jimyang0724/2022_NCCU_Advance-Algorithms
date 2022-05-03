@@ -186,7 +186,7 @@ $$\begin{gather*}
 $$\begin{gather*}
     \begin{aligned}
         &res = \text{number of all moves now}\\
-        &for(i = k\ to\ 1)\\
+        &for(i = k\ to\ 1):\\
         &\quad dp[i] = dp[i - 1] + dp[i] + 1\\
     \end{aligned}
     \\
