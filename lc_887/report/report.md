@@ -225,7 +225,7 @@ int superEggDrop(int K, int N) {
 # Complexity
 $$\begin{gather*}
   \begin{aligned}
-    &\text{\# of subproblems}\ O(logN)\text{, complexity of each take}\ O(\log K)\\
+    &\text{\# of subproblems}\ O(logN)\text{, complexity of each take}\ O(K)\\
     &\begin{aligned}
       &\text{Time complexity} &\quad& O(K \log N)\\
       &\text{Space complexity} &\quad& O(K)
