@@ -169,6 +169,11 @@ $$\begin{gather*}
 
 ---
 
+# More on binary search ...
+![width:1100](image/binarySearch.jpg)
+
+---
+
 # Solution 3 (DP)
 - Inverted problem.
 - dp(i) is the number of floors that can be measured with i eggs.
